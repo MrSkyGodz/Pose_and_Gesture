@@ -133,7 +133,7 @@ def run(detector: TorchVisionModel, num_hands: int = 2, threshold: float = 0.5, 
                     cv2.rectangle(frame, (x1, y1), (x2, y2), COLOR, thickness=3)
                     cv2.putText(frame, targets[int(labels[i])], (x1, y1 - 10),
                                 cv2.FONT_HERSHEY_SIMPLEX, 2, (0, 0, 255), thickness=3)
-                    yield targets[int(labels[i])]
+                    yield int(labels[i])
                     
             fps = 1 / delta
             cv2.putText(frame, f"FPS: {fps :02.1f}, Frame: {cnt}", (30, 30), FONT, 1, COLOR, 2)
