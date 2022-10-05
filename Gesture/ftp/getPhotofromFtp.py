@@ -5,9 +5,10 @@ import numpy as np
 from PIL import Image
 from io import BytesIO
 
-datas = bytes(ip = "192.168.0.2",name = "admin",pwd = "admin")
-def fetch_img_ftp():
+
+def fetch_img_ftp(ip = "192.168.0.2",name = "admin",pwd = "admin"):
 	global datas
+	datas = bytes()
 
 	ftp = ftplib.FTP("192.168.0.2","admin","admin")
 	files = ftp.cwd('./nova')
@@ -39,10 +40,10 @@ def callback(data):
 	datas += data
 
 while(1):
-	fetch_img_ftp()
+	# fetch_img_ftp()
 
-	# cv2.imshow("asd",fetch_img_ftp())
+	cv2.imshow("asd",fetch_img_ftp())
 
-	# cv2.waitKey(0)
+	cv2.waitKey(1)
 
 	time.sleep(0.5)
